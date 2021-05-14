@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ProjetoMVCCSHARP.Data;
 
 namespace ProjetoMVCCSHARP
 {
@@ -33,6 +35,10 @@ namespace ProjetoMVCCSHARP
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<ProjetoMVCCSHARPContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("ProjetoMVCCSHARPContext"),builder =>
+                    builder.MigrationsAssembly("ProjetoMVCCSHARP")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
