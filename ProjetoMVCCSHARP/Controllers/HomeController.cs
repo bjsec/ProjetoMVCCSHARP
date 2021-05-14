@@ -17,8 +17,8 @@ namespace ProjetoMVCCSHARP.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Message"] = "Primeiro projeto MVC";
+            ViewData["email"] = "ayres.sailing@gmail.com";
             return View();
         }
 
