@@ -10,22 +10,22 @@ using ProjetoMVCCSHARP.Models;
 
 namespace ProjetoMVCCSHARP.Controllers
 {
-    public class DepartmentsController : Controller
+    public class NoticiasController : Controller
     {
         private readonly ProjetoMVCCSHARPContext _context;
 
-        public DepartmentsController(ProjetoMVCCSHARPContext context)
+        public NoticiasController(ProjetoMVCCSHARPContext context)
         {
             _context = context;
         }
 
-        // GET: Departments
+        // GET: Noticias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Department.ToListAsync());
+            return View(await _context.Noticia.OrderByDescending(noticia => noticia.ID).ToListAsync());
         }
 
-        // GET: Departments/Details/5
+        // GET: Noticias/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace ProjetoMVCCSHARP.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (department == null)
+            var noticia = await _context.Noticia
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (noticia == null)
             {
                 return NotFound();
             }
 
-            return View(department);
+            return View(noticia);
         }
 
-        // GET: Departments/Create
+        // GET: Noticias/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departments/Create
+        // POST: Noticias/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Department department)
+        public async Task<IActionResult> Create([Bind("ID,Titulo,Resumo,Conteudo")] Noticia noticia)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(department);
+                _context.Add(noticia);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(department);
+            return View(noticia);
         }
 
-        // GET: Departments/Edit/5
+        // GET: Noticias/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace ProjetoMVCCSHARP.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Department.FindAsync(id);
-            if (department == null)
+            var noticia = await _context.Noticia.FindAsync(id);
+            if (noticia == null)
             {
                 return NotFound();
             }
-            return View(department);
+            return View(noticia);
         }
 
-        // POST: Departments/Edit/5
+        // POST: Noticias/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Department department)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Titulo,Resumo,Conteudo")] Noticia noticia)
         {
-            if (id != department.Id)
+            if (id != noticia.ID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace ProjetoMVCCSHARP.Controllers
             {
                 try
                 {
-                    _context.Update(department);
+                    _context.Update(noticia);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartmentExists(department.Id))
+                    if (!NoticiaExists(noticia.ID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace ProjetoMVCCSHARP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(department);
+            return View(noticia);
         }
 
-        // GET: Departments/Delete/5
+        // GET: Noticias/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace ProjetoMVCCSHARP.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (department == null)
+            var noticia = await _context.Noticia
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (noticia == null)
             {
                 return NotFound();
             }
 
-            return View(department);
+            return View(noticia);
         }
 
-        // POST: Departments/Delete/5
+        // POST: Noticias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var department = await _context.Department.FindAsync(id);
-            _context.Department.Remove(department);
+            var noticia = await _context.Noticia.FindAsync(id);
+            _context.Noticia.Remove(noticia);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DepartmentExists(int id)
+        private bool NoticiaExists(int id)
         {
-            return _context.Department.Any(e => e.Id == id);
+            return _context.Noticia.Any(e => e.ID == id);
         }
     }
 }

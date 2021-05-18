@@ -5,15 +5,46 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ProjetoMVCCSHARP.Data;
 
 namespace ProjetoMVCCSHARP.Controllers
 {
     public class HomeController:Controller
     {
-        public IActionResult Index()
+        private readonly ProjetoMVCCSHARPContext _context;
+
+        public HomeController(ProjetoMVCCSHARPContext context)
         {
-            return View();
+            _context = context;
         }
+
+        // GET: Noticias
+        public async Task<IActionResult> Index()
+        {
+            var minhaNoticia = View(await _context.Noticia.OrderByDescending(noticia => noticia.ID).ToListAsync());
+            Console.WriteLine(minhaNoticia.ToString());
+            
+            return View(await _context.Noticia.OrderByDescending(noticia => noticia.ID).ToListAsync());
+        }
+        // GET: Noticias/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var noticia = await _context.Noticia
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if(noticia == null)
+            {
+                return NotFound();
+            }
+
+            return View(noticia);
+        }
+
 
         public IActionResult About()
         {

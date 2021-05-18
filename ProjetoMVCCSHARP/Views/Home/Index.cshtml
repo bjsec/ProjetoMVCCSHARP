@@ -1,9 +1,26 @@
-﻿@{
+﻿@model IEnumerable<ProjetoMVCCSHARP.Models.Noticia>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div>
-    <h1>
-        <strong>Página em construção, treinando CRUD </strong>
-    </h1>
+    @foreach(var item in Model)
+    {
+    <table>
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Resumo)
+            </td>
+
+            <td> <a asp-action="Details" asp-route-id="@item.ID">Ler mais</a> |</td>
+
+        </tr>
+    </table>
+    }
+
 </div>

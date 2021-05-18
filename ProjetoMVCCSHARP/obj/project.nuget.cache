@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oPy+d9gBcdX61NUDtCxkDDqEct5bQqpmSCPsfMGdUBsGoKKfmq7zZBpsTHDc3QJ8QFoTa3mvefCQEpZR0df4ww==",
+  "dgSpecHash": "UJ6H68O03zJlJcZk2q6Ai2mGy8rbL4BSwGXWSNn1PTBj94TznxTmN3VWBB4AB/J55GZnIQs+wA4D5nITRjRrEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bruno\\Desktop\\ProjetoUdemy\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP.csproj",
+  "projectFilePath": "C:\\Users\\Bruno\\Desktop\\dataBaseATT\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.aspnetcore\\2.1.7\\microsoft.aspnetcore.2.1.7.nupkg.sha512",

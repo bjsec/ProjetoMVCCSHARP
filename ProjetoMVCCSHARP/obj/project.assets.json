@@ -12739,11 +12739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bruno\\Desktop\\ProjetoUdemy\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP.csproj",
+      "projectUniqueName": "C:\\Users\\Bruno\\Desktop\\dataBaseATT\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP.csproj",
       "projectName": "ProjetoMVCCSHARP",
-      "projectPath": "C:\\Users\\Bruno\\Desktop\\ProjetoUdemy\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP.csproj",
+      "projectPath": "C:\\Users\\Bruno\\Desktop\\dataBaseATT\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP.csproj",
       "packagesPath": "C:\\Users\\Bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bruno\\Desktop\\ProjetoUdemy\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\obj\\",
+      "outputPath": "C:\\Users\\Bruno\\Desktop\\dataBaseATT\\ProjetoMVCCSHARP\\ProjetoMVCCSHARP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
