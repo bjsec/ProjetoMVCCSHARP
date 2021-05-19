@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Início</title>
+    <title>@ViewData["Title"] - Notícias</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-united.css" />
@@ -26,20 +26,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Noticias</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Notícias</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    
+                <ul class="nav navbar-nav">                    
                     <li><a asp-area="" asp-controller="Noticias" asp-action="Index">Cadastro de notícias</a></li>
-
                 </ul>
             </div>
         </div>
     </nav>
-
     <partial name="_CookieConsentPartial" />
-
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -47,7 +43,6 @@
             <p>&copy; 2021 - ProjetoMVCCSHARP</p>
         </footer>
     </div>
-
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
