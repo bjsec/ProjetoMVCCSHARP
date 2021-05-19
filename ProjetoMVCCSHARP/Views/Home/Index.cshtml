@@ -8,13 +8,20 @@
     {
     <table>
         <tr>
-           
+
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
-            
+
             <td>
                 @Html.DisplayFor(modelItem => item.Resumo)
+            </td>
+           
+            <td>
+                @if(item.Imagem != null)
+                {
+                <img src="~/Images/@item.Imagem" />
+                }
             </td>
 
             <td> <a asp-action="Details" asp-route-id="@item.ID">Ler mais</a> |</td>
@@ -24,3 +31,5 @@
     }
 
 </div>
+
+

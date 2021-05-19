@@ -8,8 +8,8 @@ using ProjetoMVCCSHARP.Data;
 namespace ProjetoMVCCSHARP.Migrations
 {
     [DbContext(typeof(ProjetoMVCCSHARPContext))]
-    [Migration("20210514202320_Initial")]
-    partial class Initial
+    [Migration("20210519191013_Imagem")]
+    partial class Imagem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,16 +18,22 @@ namespace ProjetoMVCCSHARP.Migrations
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("ProjetoMVCCSHARP.Models.Department", b =>
+            modelBuilder.Entity("ProjetoMVCCSHARP.Models.Noticia", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Conteudo");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Imagem");
 
-                    b.ToTable("Department");
+                    b.Property<string>("Resumo");
+
+                    b.Property<string>("Titulo");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Noticia");
                 });
 #pragma warning restore 612, 618
         }

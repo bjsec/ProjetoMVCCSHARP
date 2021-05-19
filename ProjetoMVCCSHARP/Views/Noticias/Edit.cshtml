@@ -1,4 +1,4 @@
-﻿@model ProjetoMVCCSHARP.Models.Noticia
+﻿@model ProjetoMVCCSHARP.Models.NoticiaViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -27,6 +27,11 @@
                 <label asp-for="Conteudo" class="control-label"></label>
                 <input asp-for="Conteudo" class="form-control" />
                 <span asp-validation-for="Conteudo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagem" class="control-label"></label>
+                <input asp-for="Imagem" class="form-control" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />

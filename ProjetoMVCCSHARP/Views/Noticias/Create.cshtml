@@ -1,17 +1,18 @@
-﻿@model ProjetoMVCCSHARP.Models.Noticia
+﻿@model ProjetoMVCCSHARP.Models.NoticiaViewModel
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
 
-<h4>Noticia</h4>
+
+<h4>Crie sua próxima notícia</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form enctype="multipart/form-data" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
                 <input asp-for="Titulo" class="form-control" />
@@ -19,17 +20,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Resumo" class="control-label"></label>
-                <input asp-for="Resumo" class="form-control" />
+                <textarea asp-for="Resumo" class="form-control"></textarea>
                 <span asp-validation-for="Resumo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Conteudo" class="control-label"></label>
-                <input asp-for="Conteudo" class="form-control" />
+                <textarea asp-for="Conteudo" class="form-control"></textarea>
                 <span asp-validation-for="Conteudo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagem" class="control-label"></label>
+                <input asp-for="Imagem" class="form-control" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
+
         </form>
     </div>
 </div>

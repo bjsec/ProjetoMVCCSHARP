@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjetoMVCCSHARP.Migrations
 {
-    public partial class Second : Migration
+    public partial class Imagem:Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,14 +13,15 @@ namespace ProjetoMVCCSHARP.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("MySql:ValueGenerationStrategy",MySqlValueGenerationStrategy.IdentityColumn),
                     Titulo = table.Column<string>(nullable: true),
                     Resumo = table.Column<string>(nullable: true),
-                    Conteudo = table.Column<string>(nullable: true)
+                    Conteudo = table.Column<string>(nullable: true),
+                    Imagem = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Noticia", x => x.ID);
+                    table.PrimaryKey("PK_Noticia",x => x.ID);
                 });
         }
 
