@@ -17,7 +17,7 @@ namespace ProjetoMVCCSHARP.Migrations
                     Titulo = table.Column<string>(nullable: true),
                     Resumo = table.Column<string>(nullable: true),
                     Conteudo = table.Column<string>(nullable: true),
-                    Imagem = table.Column<string>(nullable: true)
+                    ImagemName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

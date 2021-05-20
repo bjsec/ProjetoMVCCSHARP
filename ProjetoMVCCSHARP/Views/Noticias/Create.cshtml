@@ -1,4 +1,4 @@
-﻿@model ProjetoMVCCSHARP.Models.NoticiaViewModel
+﻿@model ProjetoMVCCSHARP.Models.NoticiaModel
 
 @{
     ViewData["Title"] = "Create";
@@ -29,9 +29,9 @@
                 <span asp-validation-for="Conteudo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Imagem" class="control-label"></label>
-                <input asp-for="Imagem" class="form-control" />
-                <span asp-validation-for="Imagem" class="text-danger"></span>
+                <label asp-for="ImagemFile" class="control-label"></label>
+                <input asp-for="ImagemFile" class="form-control" />
+                <span asp-validation-for="ImagemFile" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

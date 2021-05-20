@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProjetoMVCCSHARP.Models.Noticia>
+﻿@model IEnumerable<ProjetoMVCCSHARP.Models.NoticiaModel>
 
 @{
     ViewData["Title"] = "Nova notícia";
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Conteudo)
             </td>
             <td >
-                @if(item.Imagem != null)
+                @if(item.ImagemName != null)
                 {
-                    <img class="noticia-imagem" src="~/Images/@item.Imagem" />
+                    <img class="noticia-imagem" src="~/Images/@item.ImagemName" />
                 }
             </td>
             <td>

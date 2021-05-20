@@ -14,6 +14,6 @@ namespace ProjetoMVCCSHARP.Data
         {
         }
 
-        public DbSet<ProjetoMVCCSHARP.Models.Noticia> Noticia { get; set; }
+        public DbSet<ProjetoMVCCSHARP.Models.NoticiaModel> Noticia { get; set; }
     }
 }

@@ -59,18 +59,17 @@ namespace ProjetoMVCCSHARP.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Titulo,Resumo,Conteudo,Imagem")] NoticiaViewModel noticia)
+        public async Task<IActionResult> Create([Bind("Titulo,Resumo,Conteudo,ImagemFile")] NoticiaModel noticia)
         {
             if(ModelState.IsValid)
             {
                 string nomeUnicoArquivo = UploadedFile(noticia);
-                Noticia noticiaFinal = new Noticia
+                NoticiaModel noticiaFinal = new NoticiaModel()
                 {
-                    ID = noticia.ID,
                     Titulo = noticia.Titulo,
                     Resumo= noticia.Resumo,
                     Conteudo = noticia.Conteudo,
-                    Imagem = nomeUnicoArquivo,
+                    ImagemName = nomeUnicoArquivo
                 };
 
                 _context.Add(noticiaFinal);
@@ -102,7 +101,7 @@ namespace ProjetoMVCCSHARP.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,[Bind("ID,Titulo,Resumo,Conteudo,Imagem")] Noticia noticia)
+        public async Task<IActionResult> Edit(int id,[Bind("ID,Titulo,Resumo,Conteudo,ImagemFile")] NoticiaModel noticia)
         {
             if(id != noticia.ID)
             {
@@ -113,7 +112,15 @@ namespace ProjetoMVCCSHARP.Controllers
             {
                 try
                 {
-                    _context.Update(noticia);
+                    string nomeUnicoArquivo = UploadedFile(noticia);
+                    NoticiaModel noticiaFinal = new NoticiaModel()
+                    {
+                        Titulo = noticia.Titulo,
+                        Resumo = noticia.Resumo,
+                        Conteudo = noticia.Conteudo,
+                        ImagemName = nomeUnicoArquivo
+                    };
+                    _context.Update(noticiaFinal);
                     await _context.SaveChangesAsync();
                 }
                 catch(DbUpdateConcurrencyException)
@@ -166,17 +173,17 @@ namespace ProjetoMVCCSHARP.Controllers
             return _context.Noticia.Any(e => e.ID == id);
         }
 
-        private string UploadedFile(NoticiaViewModel model)
+        private string UploadedFile(NoticiaModel model)
         {
             string nomeUnicoArquivo = null;
-            if(model.Imagem != null)
+            if(model.ImagemFile != null)
             {
                 string pastaFotos = Path.Combine(hostingEnvironment.ContentRootPath,"wwwroot","images");
-                nomeUnicoArquivo = Guid.NewGuid().ToString() + "_" + model.Imagem.FileName;
+                nomeUnicoArquivo = Guid.NewGuid().ToString() + "_" + model.ImagemFile.FileName;
                 string caminhoArquivo = Path.Combine(pastaFotos,nomeUnicoArquivo);
                 using(var fileStream = new FileStream(caminhoArquivo,FileMode.Create))
                 {
-                    model.Imagem.CopyTo(fileStream);
+                    model.ImagemFile.CopyTo(fileStream);
                 }
             }
             return nomeUnicoArquivo;
