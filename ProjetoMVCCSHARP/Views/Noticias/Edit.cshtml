@@ -1,12 +1,12 @@
-﻿@model ProjetoMVCCSHARP.Models.NoticiaViewModel
+﻿@model ProjetoMVCCSHARP.Models.Noticia
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar</h2>
 
-<h4>Noticia</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,12 +20,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Resumo" class="control-label"></label>
-                <input asp-for="Resumo" class="form-control" />
+                <textarea asp-for="Resumo" class="form-control"></textarea>
                 <span asp-validation-for="Resumo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Conteudo" class="control-label"></label>
-                <input asp-for="Conteudo" class="form-control" />
+                <textarea asp-for="Conteudo" class="form-control"></textarea>
                 <span asp-validation-for="Conteudo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,6 +41,7 @@
 </div>
 
 <div>
+   
     <a asp-action="Index">Back to List</a>
 </div>
 

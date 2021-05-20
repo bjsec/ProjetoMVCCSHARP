@@ -101,7 +101,7 @@ namespace ProjetoMVCCSHARP.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,[Bind("ID,Titulo,Resumo,Conteudo")] Noticia noticia)
+        public async Task<IActionResult> Edit(int id,[Bind("ID,Titulo,Resumo,Conteudo")] NoticiaViewModel noticia)
         {
             if(id != noticia.ID)
             {
