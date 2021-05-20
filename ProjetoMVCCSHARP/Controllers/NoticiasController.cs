@@ -87,6 +87,7 @@ namespace ProjetoMVCCSHARP.Controllers
             {
                 return NotFound();
             }
+            
 
             var noticia = await _context.Noticia.FindAsync(id);
             if(noticia == null)
@@ -101,7 +102,7 @@ namespace ProjetoMVCCSHARP.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,[Bind("ID,Titulo,Resumo,Conteudo")] NoticiaViewModel noticia)
+        public async Task<IActionResult> Edit(int id,[Bind("ID,Titulo,Resumo,Conteudo,Imagem")] Noticia noticia)
         {
             if(id != noticia.ID)
             {

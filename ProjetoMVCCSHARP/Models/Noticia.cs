@@ -13,7 +13,6 @@ namespace ProjetoMVCCSHARP.Models
         public string Titulo { get; set; }
         public string Resumo { get; set; }
         public string Conteudo { get; set; }
-
         public string Imagem { get; set; }
 
         public Noticia(int iD,string titulo,string resumo,string conteudo, string imagem)
